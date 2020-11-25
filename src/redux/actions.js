@@ -112,6 +112,23 @@ function userList(state = initUserList, action) {
  }
 }
 
+
+// 用户列表
+const receiveUserList = (users) => ({type: RECEIVE_USER_LIST, data: users})
+// 异步获取用户列表
+export const getUserList = (type) => {
+  return async dispatch => {
+    const response = await reqUserList(type)
+
+   const result = response.data
+   if (result.code === 0) {
+     dispatch(receiveUserList(result.data))
+  }
+ }
+}
+
+
+
 export default combineReducers({
 user,
 userList

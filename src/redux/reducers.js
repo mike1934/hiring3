@@ -31,6 +31,8 @@ return state
   
 // 返回合并的 reducer
 export default combineReducers({
-user
+user,
+userList
+
 })
 
